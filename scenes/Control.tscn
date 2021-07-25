@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://DefaultBtn.gd" type="Script" id=1]
-[ext_resource path="res://audio/select.wav" type="AudioStream" id=2]
 [ext_resource path="res://img/youtube.png" type="Texture" id=3]
 [ext_resource path="res://img/iplayer.png" type="Texture" id=4]
 [ext_resource path="res://img/britbox.png" type="Texture" id=5]
@@ -35,10 +34,10 @@ margin_right = 3.30347
 margin_bottom = 1.6156
 script = ExtResource( 6 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 56.0, 56.0, 56.0 ],
+"_edit_horizontal_guides_": [ 56.0, 56.0, 56.0, 51.6156 ],
 "_edit_lock_": true,
 "_edit_use_anchors_": false,
-"_edit_vertical_guides_": [ 333.303, 333.303, 664.0 ]
+"_edit_vertical_guides_": [ 333.303, 333.303, 664.0, 33.3035 ]
 }
 
 [node name="Background" type="Panel" parent="."]
@@ -137,9 +136,6 @@ margin_left = 791.0
 margin_top = 552.0
 margin_right = 1009.0
 margin_bottom = 592.0
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 2 )
 
 [connection signal="pressed" from="NetflixBtn" to="." method="_on_Button_pressed" binds= [ "netflix.com" ]]
 [connection signal="pressed" from="BritBoxBtn" to="." method="_on_Button_pressed" binds= [ "britbox.co.uk" ]]
