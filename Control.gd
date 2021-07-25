@@ -21,3 +21,8 @@ func _ready():
 
 func _on_Button_pressed(extra_arg_0):
 	OS.execute("firefox", ["-kiosk", extra_arg_0], false)
+
+
+func _physics_process(delta):
+	if Input.is_action_just_pressed("ui_move"):
+		$AudioStreamPlayer.play()
