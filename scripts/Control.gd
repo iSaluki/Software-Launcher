@@ -18,7 +18,7 @@ func _ready():
 
 
 
-
+# extra_arg_0 is the URL to open. It is passed in from a signal on the button.
 func _on_Button_pressed(extra_arg_0):
 	OS.execute("firefox", ["-kiosk", extra_arg_0], false)
 

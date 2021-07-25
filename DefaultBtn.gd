@@ -8,6 +8,7 @@ extends Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Grab focus selects the button on open.
 	grab_focus()
 
 
