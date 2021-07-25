@@ -12,7 +12,16 @@ config_version=4
 
 config/name="Launcher"
 run/main_scene="res://Control.tscn"
+boot_splash/image="null.png"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/fullscreen=true
+
+[global]
+
+fullscreen=false
 
 [physics]
 

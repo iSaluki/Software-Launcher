@@ -1,19 +1,83 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Control.gd" type="Script" id=1]
+[ext_resource path="res://netflix.png" type="Texture" id=2]
+[ext_resource path="res://britbox.png" type="Texture" id=3]
+[ext_resource path="res://iplayer.png" type="Texture" id=4]
+[ext_resource path="res://youtube.png" type="Texture" id=5]
+
+[sub_resource type="Theme" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_top = -1.0
-margin_bottom = -1.0
+margin_left = -6.13525
+margin_top = -6.8793
+margin_right = -6.13525
+margin_bottom = -6.87927
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Button" type="Button" parent="."]
-margin_left = 2.0
-margin_top = -1.0
-margin_right = 388.0
-margin_bottom = 130.0
-text = "Netflix"
+[node name="NetflixBtn" type="Button" parent="."]
+anchor_left = 0.0722656
+anchor_top = 0.0833333
+anchor_right = 0.326172
+anchor_bottom = 0.376667
+theme = SubResource( 1 )
+icon = ExtResource( 2 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[connection signal="pressed" from="Button" to="." method="_on_Button_pressed" binds= [ "netflix.com" ]]
+[node name="BritBoxBtn" type="Button" parent="."]
+anchor_left = 0.339844
+anchor_top = 0.085
+anchor_right = 0.569336
+anchor_bottom = 0.373333
+rect_pivot_offset = Vector2( 131.296, 88.5 )
+theme = SubResource( 1 )
+icon = ExtResource( 3 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="iPlayerBtn" type="Button" parent="."]
+anchor_left = 0.600586
+anchor_top = 0.0866667
+anchor_right = 0.896484
+anchor_bottom = 0.368333
+rect_pivot_offset = Vector2( 131.296, 88.5 )
+theme = SubResource( 1 )
+icon = ExtResource( 4 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="YouTubeBtn" type="Button" parent="."]
+anchor_left = 0.0591674
+anchor_top = 0.401772
+anchor_right = 0.336511
+anchor_bottom = 0.710105
+rect_pivot_offset = Vector2( 131.296, 88.5 )
+theme = SubResource( 1 )
+icon = ExtResource( 5 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 791.0
+margin_top = 552.0
+margin_right = 1009.0
+margin_bottom = 592.0
+
+[connection signal="pressed" from="NetflixBtn" to="." method="_on_Button_pressed" binds= [ "netflix.com" ]]
+[connection signal="pressed" from="BritBoxBtn" to="." method="_on_Button_pressed" binds= [ "britbox.co.uk" ]]
+[connection signal="pressed" from="iPlayerBtn" to="." method="_on_Button_pressed" binds= [ "bbc.co.uk/iplayer" ]]
+[connection signal="pressed" from="YouTubeBtn" to="." method="_on_Button_pressed" binds= [ "youtube.com" ]]
