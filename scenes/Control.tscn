@@ -1,0 +1,147 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://DefaultBtn.gd" type="Script" id=1]
+[ext_resource path="res://audio/select.wav" type="AudioStream" id=2]
+[ext_resource path="res://img/youtube.png" type="Texture" id=3]
+[ext_resource path="res://img/iplayer.png" type="Texture" id=4]
+[ext_resource path="res://img/britbox.png" type="Texture" id=5]
+[ext_resource path="res://scripts/Control.gd" type="Script" id=6]
+[ext_resource path="res://img/johannes-plenio-qkfxBc2NQ18-unsplash.jpg" type="Texture" id=7]
+[ext_resource path="res://img/netflix.png" type="Texture" id=8]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 6000, 3375 )
+
+[sub_resource type="Theme" id=2]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.00729927, 1 )
+colors = PoolColorArray( 0, 0, 0, 0.380392, 0.00784314, 0.254902, 0.309804, 0.92549, 0.027451, 0.792157, 0.968627, 1 )
+
+[sub_resource type="GradientTexture" id=4]
+gradient = SubResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = SubResource( 4 )
+region_rect = Rect2( 0, 0, 2048, 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.30347
+margin_top = 1.61557
+margin_right = 3.30347
+margin_bottom = 1.6156
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 56.0, 56.0, 56.0 ],
+"_edit_lock_": true,
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 333.303, 333.303, 664.0 ]
+}
+
+[node name="Background" type="Panel" parent="."]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="NetflixBtn" type="Button" parent="."]
+anchor_left = 0.028024
+anchor_top = 0.0773074
+anchor_right = 0.28193
+anchor_bottom = 0.370641
+margin_left = 1.30347
+margin_top = 3.61557
+margin_right = 41.3033
+margin_bottom = 2.61536
+focus_next = NodePath("../BritBoxBtn")
+focus_previous = NodePath("../YouTubeBtn")
+theme = SubResource( 2 )
+custom_styles/normal = SubResource( 5 )
+keep_pressed_outside = true
+icon = ExtResource( 8 )
+expand_icon = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BritBoxBtn" type="Button" parent="."]
+anchor_left = 0.340524
+anchor_top = 0.08
+anchor_right = 0.598336
+anchor_bottom = 0.368333
+margin_left = 16.0
+margin_top = 2.0
+margin_right = 52.0
+margin_bottom = 4.0
+rect_pivot_offset = Vector2( 131.296, 88.5 )
+focus_next = NodePath("../iPlayerBtn")
+focus_previous = NodePath("../NetflixBtn")
+theme = SubResource( 2 )
+custom_styles/normal = SubResource( 5 )
+keep_pressed_outside = true
+icon = ExtResource( 5 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="iPlayerBtn" type="Button" parent="."]
+anchor_left = 0.653024
+anchor_top = 0.0773074
+anchor_right = 0.948922
+anchor_bottom = 0.358974
+margin_left = 25.3034
+margin_top = 3.61557
+margin_right = 22.3038
+margin_bottom = 9.61578
+rect_pivot_offset = Vector2( 131.296, 88.5 )
+focus_next = NodePath("../YouTubeBtn")
+focus_previous = NodePath("../BritBoxBtn")
+theme = SubResource( 2 )
+custom_styles/normal = SubResource( 5 )
+keep_pressed_outside = true
+icon = ExtResource( 4 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="YouTubeBtn" type="Button" parent="."]
+anchor_left = 0.028024
+anchor_top = 0.423974
+anchor_right = 0.323922
+anchor_bottom = 0.678974
+margin_left = -1.90735e-06
+margin_right = -3.0
+margin_bottom = 22.0
+rect_pivot_offset = Vector2( 131.296, 88.5 )
+theme = SubResource( 2 )
+custom_styles/normal = SubResource( 5 )
+keep_pressed_outside = true
+icon = ExtResource( 3 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 791.0
+margin_top = 552.0
+margin_right = 1009.0
+margin_bottom = 592.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+
+[connection signal="pressed" from="NetflixBtn" to="." method="_on_Button_pressed" binds= [ "netflix.com" ]]
+[connection signal="pressed" from="BritBoxBtn" to="." method="_on_Button_pressed" binds= [ "britbox.co.uk" ]]
+[connection signal="pressed" from="iPlayerBtn" to="." method="_on_Button_pressed" binds= [ "bbc.co.uk/iplayer" ]]
+[connection signal="pressed" from="YouTubeBtn" to="." method="_on_Button_pressed" binds= [ "youtube.com" ]]
